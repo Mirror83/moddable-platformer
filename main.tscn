@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dhcpt1kt8cs0g"]
+[gd_scene load_steps=17 format=4 uid="uid://dhcpt1kt8cs0g"]
 
 [ext_resource type="PackedScene" uid="uid://8st4scqt06l8" path="res://components/player/player.tscn" id="2_7yl00"]
 [ext_resource type="PackedScene" uid="uid://jnrusvm3gric" path="res://spaces/background.tscn" id="2_tb5a2"]
@@ -13,12 +13,17 @@
 [ext_resource type="SpriteFrames" uid="uid://bo581k1esb50n" path="res://components/player/spriteframes-red.tres" id="9_qmofe"]
 [ext_resource type="PackedScene" uid="uid://beuisy5yrw0bq" path="res://components/flag/flag.tscn" id="12_dkbog"]
 [ext_resource type="Script" uid="uid://boqbxvbja884q" path="res://scripts/multiplayer_camera.gd" id="13_0d2mj"]
+[ext_resource type="AudioStream" uid="uid://dx186cvidw48p" path="res://assets/audio/coin-sfx.wav" id="14_2cqfq"]
+[ext_resource type="Script" uid="uid://d4bvy1alk6yi4" path="res://components/coin/coin_sfx.gd" id="14_vivmo"]
+[ext_resource type="AudioStream" uid="uid://ckaikexawcyph" path="res://assets/audio/bg-music.wav" id="14_w48qg"]
 
 [node name="Main" type="Node2D"]
 
 [node name="GameLogic" parent="." instance=ExtResource("3_xbkvd")]
 win_by_collecting_coins = true
 win_by_reaching_flag = true
+time_limit = 60
+lives = 1
 
 [node name="Background" parent="." instance=ExtResource("2_tb5a2")]
 tint = Color(0.569993, 0.558956, 0.878091, 1)
@@ -221,7 +226,7 @@ position = Vector2(1920, 576)
 position = Vector2(4096, 960)
 
 [node name="Flag" parent="." instance=ExtResource("12_dkbog")]
-position = Vector2(4192, 320)
+position = Vector2(4192, 319)
 
 [node name="MultiplayerCamera" type="Camera2D" parent="."]
 position = Vector2(0, 15)
@@ -230,3 +235,14 @@ limit_left = 0
 limit_bottom = 1080
 position_smoothing_enabled = true
 script = ExtResource("13_0d2mj")
+
+[node name="CoinSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_2cqfq")
+volume_db = -9.0
+script = ExtResource("14_vivmo")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_w48qg")
+autoplay = true
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
