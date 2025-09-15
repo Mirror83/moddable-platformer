@@ -10,15 +10,10 @@ writing any code.
 
 The `doc/MODS.md` file details the mods that have been made available.
 
-## Contributing
+This is part of the week 2 assignment in the Godot track of the GameUp Africa
+2025 Game Development Bootcamp.
 
-We encourage contributions that continue to address the intended audience and
-design of of this project. You can communicate with us through the
-[Endless Studios](https://studio.endlessstudios.com/studio/games/Moddable-Platformer/)
-community platform and submit pull requests via
-[GitHub](https://github.com/endlessm/moddable-platformer).
-
-### Development environment
+## Development environment
 
 Please use [pre-commit](https://pre-commit.com) to check for correct formatting
 and other issues before creating commits. To do this automatically, you can add
@@ -33,3 +28,19 @@ pre-commit install
 ```
 
 Now `pre-commit` will run automatically on `git commit`!
+
+## Modifications made
+
+The mods I made that were provided for by the game were:
+
+- adding a timer set to 60 seconds
+- changing the number of lives the player has to 1
+
+The other modifications I made were on adding some music and sound effects to
+the game. I made the sounds myself and they include:
+
+- player walking and jumping sfx
+- background music
+- short stingers when the player wins or loses
+
+You can find them in the [`assets/audio`](assets/audio) folder.
