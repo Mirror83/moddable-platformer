@@ -63,6 +63,12 @@ var jump_buffer_timer: float = 0
 # If true, the player is already jumping and can perform a double-jump
 var double_jump_armed: bool = false
 
+# Frames to play footstep sound on
+var footstep_frames = [1]
+
+# Used to determine whether or not to play footstep sound
+var game_lost = false
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var original_position: Vector2
@@ -71,9 +77,6 @@ var original_position: Vector2
 @onready var _initial_sprite_frames: SpriteFrames = %AnimatedSprite2D.sprite_frames
 @onready var _double_jump_particles: CPUParticles2D = %DoubleJumpParticles
 
-var _footstep_frames = [1]
-
-var game_lost = false
 
 func _on_game_ended(ending: Global.Endings):
 	if ending == Global.Endings.LOSE:
@@ -179,7 +182,8 @@ func _physics_process(delta):
 		double_jump_armed = false
 
 	if _player_just_pressed("jump"):
-		if is_on_floor(): $JumpSFX.play()
+		if is_on_floor():
+			$JumpSFX.play()
 		jump_buffer_timer = (jump_buffer + delta)
 
 	if jump_buffer_timer > 0 and (double_jump_armed or coyote_timer > 0):
@@ -234,8 +238,9 @@ func reset():
 func _on_lives_changed():
 	if Global.lives > 0:
 		reset()
-		
-	
+
+
 func _on_animated_sprite_2d_frame_changed() -> void:
 	if _sprite.animation == "walk" and not game_lost:
-		if _sprite.frame in _footstep_frames: $WalkSFX.play()
+		if _sprite.frame in footstep_frames:
+			$WalkSFX.play()
