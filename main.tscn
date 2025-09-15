@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dhcpt1kt8cs0g"]
+[gd_scene load_steps=20 format=4 uid="uid://dhcpt1kt8cs0g"]
 
 [ext_resource type="PackedScene" uid="uid://8st4scqt06l8" path="res://components/player/player.tscn" id="2_7yl00"]
 [ext_resource type="PackedScene" uid="uid://jnrusvm3gric" path="res://spaces/background.tscn" id="2_tb5a2"]
@@ -16,6 +16,9 @@
 [ext_resource type="AudioStream" uid="uid://dx186cvidw48p" path="res://assets/audio/coin-sfx.wav" id="14_2cqfq"]
 [ext_resource type="Script" uid="uid://d4bvy1alk6yi4" path="res://components/coin/coin_sfx.gd" id="14_vivmo"]
 [ext_resource type="AudioStream" uid="uid://ckaikexawcyph" path="res://assets/audio/bg-music.wav" id="14_w48qg"]
+[ext_resource type="Script" uid="uid://bed878vg8q5v4" path="res://bgm_manager.gd" id="16_yaehf"]
+[ext_resource type="AudioStream" uid="uid://rjisjq4p8yh1" path="res://assets/audio/win-sfx.wav" id="18_074og"]
+[ext_resource type="AudioStream" uid="uid://cyljprc38ye1" path="res://assets/audio/lose-sfx.wav" id="19_cegan"]
 
 [node name="Main" type="Node2D"]
 
@@ -238,11 +241,20 @@ script = ExtResource("13_0d2mj")
 
 [node name="CoinSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_2cqfq")
-volume_db = -9.0
+volume_db = -12.0
 script = ExtResource("14_vivmo")
 
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+[node name="BgmManager" type="Node" parent="."]
+script = ExtResource("16_yaehf")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="BgmManager"]
 stream = ExtResource("14_w48qg")
 autoplay = true
+
+[node name="WinSFX" type="AudioStreamPlayer" parent="BgmManager"]
+stream = ExtResource("18_074og")
+
+[node name="LoseSFX" type="AudioStreamPlayer" parent="BgmManager"]
+stream = ExtResource("19_cegan")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]

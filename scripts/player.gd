@@ -71,6 +71,14 @@ var original_position: Vector2
 @onready var _initial_sprite_frames: SpriteFrames = %AnimatedSprite2D.sprite_frames
 @onready var _double_jump_particles: CPUParticles2D = %DoubleJumpParticles
 
+var _footstep_frames = [1]
+
+var game_lost = false
+
+func _on_game_ended(ending: Global.Endings):
+	if ending == Global.Endings.LOSE:
+		game_lost = true
+
 
 func _set_sprite_frames(new_sprite_frames):
 	sprite_frames = new_sprite_frames
@@ -96,6 +104,7 @@ func _ready():
 	else:
 		Global.gravity_changed.connect(_on_gravity_changed)
 		Global.lives_changed.connect(_on_lives_changed)
+		Global.game_ended.connect(_on_game_ended)
 
 	original_position = position
 	_set_speed(speed)
@@ -170,6 +179,7 @@ func _physics_process(delta):
 		double_jump_armed = false
 
 	if _player_just_pressed("jump"):
+		if is_on_floor(): $JumpSFX.play()
 		jump_buffer_timer = (jump_buffer + delta)
 
 	if jump_buffer_timer > 0 and (double_jump_armed or coyote_timer > 0):
@@ -224,3 +234,8 @@ func reset():
 func _on_lives_changed():
 	if Global.lives > 0:
 		reset()
+		
+	
+func _on_animated_sprite_2d_frame_changed() -> void:
+	if _sprite.animation == "walk" and not game_lost:
+		if _sprite.frame in _footstep_frames: $WalkSFX.play()
