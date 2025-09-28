@@ -58,7 +58,7 @@ texture_filter = 3
 unique_name_in_owner = true
 root_node = NodePath("../Sprites")
 libraries = {
-"": SubResource("AnimationLibrary_cwxfq")
+&"": SubResource("AnimationLibrary_cwxfq")
 }
 
 [connection signal="body_entered" from="RigidBody2D" to="." method="_on_rigid_body_2d_body_entered"]

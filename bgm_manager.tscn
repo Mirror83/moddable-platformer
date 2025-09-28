@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://djilll5anx0cj"]
+
+[ext_resource type="Script" uid="uid://bed878vg8q5v4" path="res://bgm_manager.gd" id="1_kj2ip"]
+[ext_resource type="AudioStream" uid="uid://cee6dor8v3wlq" path="res://assets/audio/mp3/bg-music.mp3" id="2_5ghed"]
+[ext_resource type="AudioStream" uid="uid://oq64xnueswp0" path="res://assets/audio/mp3/win-stinger.mp3" id="3_ugjxk"]
+[ext_resource type="AudioStream" uid="uid://bd8qv8wh81nwy" path="res://assets/audio/mp3/lose-stinger.mp3" id="4_vubut"]
+
+[node name="BgmManager" type="Node"]
+script = ExtResource("1_kj2ip")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_5ghed")
+autoplay = true
+
+[node name="WinStinger" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ugjxk")
+
+[node name="LoseStinger" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_vubut")

@@ -8,6 +8,6 @@ func _ready() -> void:
 func _on_game_ended(ending: Global.Endings):
 	$BackgroundMusic.stop()
 	if ending == Global.Endings.WIN:
-		$WinSFX.play()
+		$WinStinger.play()
 	else:
-		$LoseSFX.play()
+		$LoseStinger.play()
