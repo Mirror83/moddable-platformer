@@ -10,7 +10,7 @@ writing any code.
 
 The `doc/MODS.md` file details the mods that have been made available.
 
-This is part of the week 2 assignment in the Godot track of the GameUp Africa
+This is part of the week 2 - 5 assignment in the Godot track of the GameUp Africa
 2025 Game Development Bootcamp.
 
 ## Development environment
@@ -19,7 +19,7 @@ Please use [pre-commit](https://pre-commit.com) to check for correct formatting
 and other issues before creating commits. To do this automatically, you can add
 it as a git hook:
 
-```
+```bash
 # If you don't have pre-commit already:
 pip install pre-commit
 
