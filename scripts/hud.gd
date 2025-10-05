@@ -75,3 +75,9 @@ func set_lives(lives: int):
 
 func _on_game_ended(ending: Global.Endings):
 	ending_labels[ending].visible = true
+
+
+func _on_restart_button_pressed() -> void:
+	var result = get_tree().reload_current_scene()
+	if result != OK:
+		print("Unable to reload current scene. Error %s" % result)

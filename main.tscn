@@ -23,7 +23,6 @@
 win_by_collecting_coins = true
 win_by_reaching_flag = true
 time_limit = 60
-lives = 1
 
 [node name="Background" parent="." instance=ExtResource("2_tb5a2")]
 tint = Color(0.569993, 0.558956, 0.878091, 1)
