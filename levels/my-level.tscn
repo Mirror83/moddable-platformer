@@ -7,8 +7,8 @@
 [ext_resource type="SpriteFrames" uid="uid://bo581k1esb50n" path="res://components/player/spriteframes-red.tres" id="5_r6vdu"]
 [ext_resource type="PackedScene" uid="uid://coq6d3u6wnvs2" path="res://components/platform/platform.tscn" id="6_21xmu"]
 [ext_resource type="PackedScene" uid="uid://dthyncc3spfks" path="res://spaces/dangerzone.tscn" id="7_8i3m3"]
-[ext_resource type="PackedScene" uid="uid://djilll5anx0cj" path="res://bgm_manager.tscn" id="8_3opl0"]
-[ext_resource type="PackedScene" uid="uid://jt80gv02u4f2" path="res://hud.tscn" id="8_rmy57"]
+[ext_resource type="PackedScene" uid="uid://djilll5anx0cj" path="res://components/sound/bgm_manager.tscn" id="8_3opl0"]
+[ext_resource type="PackedScene" uid="uid://jt80gv02u4f2" path="res://components/ui/hud.tscn" id="8_rmy57"]
 [ext_resource type="PackedScene" uid="uid://beuisy5yrw0bq" path="res://components/flag/flag.tscn" id="13_s8oj7"]
 [ext_resource type="PackedScene" uid="uid://cxtdcmpng7t4p" path="res://components/platform/movable_platform.tscn" id="14_mw4xc"]
 
